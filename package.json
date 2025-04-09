@@ -1,0 +1,51 @@
+{
+  "name": "Smart_Inventory_Management",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/connectivity": "^3.18.0",
+    "@sap-cloud-sdk/http-client": "^2.9.0",
+    "@sap-cloud-sdk/resilience": "^3.17.0",
+    "@sap/cds-hana": "^2",
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "pdfkit": "^0.16.0",
+    "pdfmake": "^0.2.18"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds": "^8.7.1",
+    "@sap/cds-dk": "^7",
+    "@sap/eslint-plugin-cds": "^3",
+    "@sap/ux-specification": "^1.120.17",
+    "eslint": "^9",
+    "mbt": "^1.2.29",
+    "rimraf": "^5.0.5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-app1": "cds watch --open app1/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy Smart_Inventory_Management --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+  },
+  "cds": {
+    "requires": {
+      "db": "hana",
+      "auth": "dummy"
+    }, "static": {
+      "kind": "static-files",
+      "root": "./invoices"
+    },
+    "fiori": {
+      "bypass_draft": true
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
+  }
+}

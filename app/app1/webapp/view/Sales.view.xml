@@ -1,0 +1,69 @@
+<mvc:View xmlns="sap.m" 
+          xmlns:mvc="sap.ui.core.mvc" 
+          xmlns:layout="sap.ui.layout.form"
+          controllerName="app1.controller.Sales">
+    
+    <Page id="salesPage" title="Sales Management">
+        <content>
+            <!-- Search Bar -->
+            <Toolbar id="salesToolbar">
+                <SearchField id="searchField1" placeholder="Search Sales..." liveChange="onSearch"/>
+                <ToolbarSpacer id="salesToolbarSpacer"/>
+                <Button id="addSaleButton" text="Add Sale" icon="sap-icon://add" press="onAddSale"/>
+            </Toolbar>
+
+            <!-- Sales Table -->
+            <Table id="salesTable" items="{/Sales}" mode="None" selectionChange="onSaleSelected">
+                <columns>
+                    <Column id="_IDGenColumn6">
+                        <Text id="_IDGenText14" text="Product"/>
+                    </Column>
+                    <Column id="_IDGenColumn7">
+                        <Text id="_IDGenText20" text="Quantity"/>
+                    </Column>
+                    <Column id="_IDGenColumn8">
+                        <Text id="_IDGenText25" text="Unit Price"/>
+                    </Column>
+                    <Column id="_IDGenColumn9">
+                        <Text id="_IDGenText26" text="Total Price"/>
+                    </Column>
+                    <Column id="_IDGenColumn10">
+                        <Text id="_IDGenText27" text="Sale Date"/>
+                    </Column>
+                    <Column id="_IDGenColumn11">
+                        <Text id="_IDGenText28" text="Customer"/>
+                    </Column>
+                    <Column id="_IDGenColumn12">
+                        <Text id="_IDGenText29" text="Payment Method"/>
+                    </Column>
+                    <Column id="_IDGenColumn13">
+                        <Text id="_IDGenText30" text="Status"/>
+                    </Column>
+                    <Column id="_IDGenColumn14">
+                        <Text id="_IDGenText31" text="Actions"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem1">
+                        <cells>
+                            <Text id="_IDGenText32" text="{product/name}"/>
+                            <Text id="_IDGenText33" text="{quantity}"/>
+                            <Text id="_IDGenText34" text="{unitPrice}"/>
+                            <Text id="_IDGenText35" text="{totalPrice}"/>
+                            <Text id="_IDGenText36" text="{saleDate}"/>
+                            <Text id="_IDGenText37" text="{customer/name}"/>
+                            <Text id="_IDGenText38" text="{paymentMethod}"/>
+                            <ObjectStatus id="_IDGenText39" text="{status}" 
+                      state="{= ${status} === 'Completed' ? 'Success' : ${status} === 'Pending' ? 'Warning' : 'Error'}"/> 
+                            <HBox id="_IDGenHBox3">
+                                <Button id="_IDGenButton12" text="Edit" icon="sap-icon://edit" press="onEditSale"/>
+                                <Button id="_IDGenButton17" text="Delete" icon="sap-icon://delete" type="Reject" press="onDeleteSale"/>
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

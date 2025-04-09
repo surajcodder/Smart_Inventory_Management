@@ -1,0 +1,66 @@
+<mvc:View 
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:layout="sap.ui.layout.form"
+    controllerName="app1.controller.AddSales">
+
+    <App id="appSales" class="fullHeight">
+        <Page id="AddSalesPage" title="Add New Sale" class="fullHeight">
+            <content>
+                <VBox id="salesVBox" class="fullHeight">
+                    <Panel id="salesPanel" class="sapUiResponsiveMargin" width="auto">
+                        <content>
+                            <layout:SimpleForm
+                                id="AddSalesForm"
+                                layout="ResponsiveGridLayout"
+                                editable="true"
+                                title="Sales Details"
+                                width="100%">
+
+                                <Label id="_IDGenLabel15" text="Product"/>
+                                <ComboBox id="inputProduct" items="{/Products}">
+                                    <core:ListItem id="_IDGenListItem1" key="{ID}" text="{name}"/>
+                                </ComboBox>
+
+                                <Label id="_IDGenLabel16" text="Quantity"/>
+                                <Input id="inputQuantity" placeholder="Enter quantity" type="Number"/>
+
+                                <Label id="_IDGenLabel17" text="Unit Price"/>
+                                <Input id="inputUnitPrice" placeholder="Enter unit price" type="Number"/>
+
+                                <Label id="_IDGenLabel19" text="Sale Date"/>
+                                <DatePicker id="inputSaleDate"/>
+
+                                <Label id="_IDGenLabel20" text="Customer"/>
+                                <ComboBox id="inputCustomer" items="{/Customers}">
+                                    <core:ListItem id="_IDGenListItem3" key="{ID}" text="{name}"/>
+                                </ComboBox>
+
+                                <Label id="_IDGenLabel21" text="Payment Method"/>
+                                <Select id="inputPaymentMethod">
+                                    <core:Item id="_IDGenItem" key="Cash" text="Cash"/>
+                                    <core:Item id="_IDGenItem1" key="Credit" text="Credit"/>
+                                    <core:Item id="_IDGenItem2" key="Online" text="Online"/>
+                                </Select>
+
+                                <Label id="_IDGenLabel22" text="Status"/>
+                                <Select id="inputStatus">
+                                    <core:Item id="_IDGenItem3" key="Completed" text="Completed"/>
+                                    <core:Item id="_IDGenItem4" key="Pending" text="Pending"/>
+                                    <core:Item id="_IDGenItem5" key="Cancelled" text="Cancelled"/>
+                                </Select>
+
+                                <HBox id="_IDGenHBox5" justifyContent="SpaceBetween">
+                                    <Button id="_IDGenButton18" text="Save Sale" type="Emphasized" press="onSaveSale"/>
+                                    <Button id="_IDGenButton19" text="Cancel" type="Reject" press="onNavBack"/>
+                                </HBox>
+                            </layout:SimpleForm>
+                        </content>
+                    </Panel>
+                </VBox>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

@@ -1,0 +1,198 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "app1",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.3",
+            "toolsId": "d4b55765-013f-45af-ae46-fda6f1449b2c"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "odata/v4/reports/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "Smart_Inventory_Management-display": {
+                    "semanticObject": "Smart_Inventory_Management",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    }
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.132.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.tnt": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "app1.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "app1.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteView1",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetView1"
+                    ]
+                },
+                {
+                    "name": "Products",
+                    "pattern": "Products",
+                    "target": [
+                        "TargetProducts"
+                    ]
+                },
+                {
+                    "name": "AddProduct",
+                    "pattern": "add-product",
+                    "target": [
+                        "TargetAddProduct"
+                    ]
+                },
+                {
+                    "pattern": "EditProduct/{productId}",
+                    "name": "EditProduct",
+                    "target": [
+                        "TargetEditProduct"
+                    ]
+                },
+                {
+                    "name": "Sales",
+                    "pattern": "Sales",
+                    "target": [
+                        "TargetSales"
+                    ]
+                },
+                {
+                    "name": "AddSales",
+                    "pattern": "AddSales",
+                    "target": [
+                        "TargetAddSales"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetView1": {
+                    "id": "View1",
+                    "name": "View1"
+                },
+                "TargetProducts": {
+                    "id": "Products",
+                    "name": "Products",
+                    "viewPath": "app1",
+                    "viewType": "XML"
+                },
+                "TargetAddProduct": {
+                    "viewName": "ProductsAdd",
+                    "viewType": "XML",
+                    "id": "AddProduct",
+                    "name": "AddProduct"
+                },
+                "TargetEditProduct": {
+                    "viewName": "ProductsEdit",
+                    "viewType": "XML",
+                    "viewPath": "app1.view",
+                    "id": "EditProduct",
+                    "name": "EditProduct"
+                },
+                "TargetSales": {
+                    "id": "Sales",
+                    "name": "Sales",
+                    "viewPath": "app1",
+                    "viewType": "XML"
+                },
+                "TargetAddSales": {
+                    "id": "AddSales",
+                    "name": "AddSales",
+                    "viewType": "XML",
+                    "viewPath": "app1"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "app1.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "Smart_Inventory_Management"
+    }
+}

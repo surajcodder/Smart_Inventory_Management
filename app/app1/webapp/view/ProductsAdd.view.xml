@@ -1,0 +1,57 @@
+<mvc:View 
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:layout="sap.ui.layout.form"
+    controllerName="app1.controller.ProductsAdd">
+
+    <App id="app3" class="fullHeight">
+    <Page id="AddProductPage" title="Add New Product" class="fullHeight">
+        <content>
+            <VBox id="_IDGenVBox10" class="fullHeight">
+                <Panel id="_IDGenPanel1" class="sapUiResponsiveMargin" width="auto">
+                <content>
+                    <layout:SimpleForm
+                        id="AddProductForm"
+                        layout="ResponsiveGridLayout"
+                        editable="true"
+                        title="Product Details"
+                        width="100%">
+
+                        <Label id="_IDGenLabel" text="Product Name"/>
+                        <Input id="inputName" placeholder="Enter product name"/>
+
+                        <Label id="_IDGenLabel1" text="Description"/>
+                        <TextArea id="inputDescription" placeholder="Enter product description" rows="2"/>
+
+                        <Label id="_IDGenLabel2" text="Category"/>
+                        <Input id="inputCategory" placeholder="Enter category"/>
+
+                        <Label id="_IDGenLabel3" text="Price"/>
+                        <Input id="inputPrice" placeholder="Enter price" type="Number"/>
+
+                        <Label id="_IDGenLabel4" text="Stock Level"/>
+                        <Input id="inputStock" placeholder="Enter stock quantity" type="Number"/>
+
+                        <Label id="_IDGenLabel5" text="Reorder Threshold"/>
+                        <Input id="inputReorderThreshold" placeholder="Enter reorder level" type="Number"/>
+
+                        <Label id="_IDGenLabel6" text="Supplier"/>
+                        <ComboBox id="inputSupplier" items="{/Suppliers}">
+                            <core:ListItem id="_IDGenListItem" key="{ID}" text="{name}"/>
+                        </ComboBox>
+
+                        <HBox id="_IDGenHBox2" justifyContent="SpaceBetween">
+                            <Button id="_IDGenButton13" text="Save Product" type="Emphasized" press="onSaveProduct"/>
+                            <Button id="_IDGenButton14" text="Cancel" type="Reject" press="onNavBack"/>
+                        </HBox>
+
+                    </layout:SimpleForm>
+                </content>
+           </Panel>
+            </VBox>
+        </content>
+    </Page>
+    </App>
+</mvc:View>

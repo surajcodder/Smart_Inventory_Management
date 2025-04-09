@@ -1,0 +1,55 @@
+<mvc:View xmlns="sap.m" 
+          xmlns:mvc="sap.ui.core.mvc" 
+          xmlns:layout="sap.ui.layout.form"
+          controllerName="app1.controller.Products">
+    
+    <Page id="productPage" title="Product Management">
+        <content>
+            <!-- Search Bar -->
+            <Toolbar id="_IDGenToolbar">
+                <SearchField id="searchField" placeholder="Search Products..." liveChange="onSearch"/>
+                <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                <Button id="_IDGenButton9" text="Add Product" icon="sap-icon://add" press="onAddProduct"/>
+            </Toolbar>
+
+            <!-- Product Table -->
+            <Table id="productTable" items="{/Products}">
+                <columns>
+                    <Column id="_IDGenColumn1">
+                        <Text id="_IDGenText15" text="Product Name"/>
+                    </Column>
+                    <Column id="_IDGenColumn2">
+                        <Text id="_IDGenText16" text="Category"/>
+                    </Column>
+                    <Column id="_IDGenColumn3">
+                        <Text id="_IDGenText17" text="Price"/>
+                    </Column>
+                    <Column id="_IDGenColumn4">
+                        <Text id="_IDGenText18" text="Stock"/>
+                    </Column>
+                    <Column id="_IDGenColumn5">
+                        <Text id="_IDGenText19" text="Actions"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem">
+                        <cells>
+                            
+                            <Text id="_IDGenText21" text="{name}"/>
+                            <Text id="_IDGenText22" text="{category}"/>
+                            <Text id="_IDGenText23" text="{price}"/>
+                            <Text id="_IDGenText24" text="{stockLevel}"/>
+                            <HBox id="_IDGenHBox1">
+                                <Button id="_IDGenButton10" text="Edit" icon="sap-icon://edit" press="onEditProduct"/>
+                                <Button id="_IDGenButton11" text="Delete" icon="sap-icon://delete" type="Reject" press="onDeleteProduct"/>
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <!-- Product Form -->
+        </content>
+    </Page>
+</mvc:View>

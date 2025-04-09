@@ -1,0 +1,61 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="app1.controller.EditProduct">
+
+     <Page id="_IDGenPage" title="Edit Product">
+        <content>
+    <VBox id="_IDGenVBox12">
+        <f:SimpleForm id="_IDGenSimpleForm" 
+            layout="ResponsiveGridLayout"
+            labelSpanXL="4" labelSpanL="4" labelSpanM="3" labelSpanS="12"
+            columnsXL="2" columnsL="2" columnsM="1"
+            class="sapUiMediumMargin"
+            singleContainerFullSize="false">
+
+            <Label id="_IDGenLabel7" text="Product Name"/>
+            <Input id="inputProductName" value="{productModel>/name}" placeholder="Enter product name"/>
+
+            <Label id="_IDGenLabel8" text="Description"/>
+            <TextArea id="inputDescription1" value="{productModel>/description}" placeholder="Enter product description" rows="2"/>
+
+            <Label id="_IDGenLabel9" text="Category"/>
+            <Input id="inputCategory1" value="{productModel>/category}" placeholder="Enter category"/>
+
+            <Label id="_IDGenLabel10" text="Price"/>
+            <Input id="inputPrice1" value="{productModel>/price}" placeholder="Enter price" type="Number"/>
+
+            <Label id="_IDGenLabel11" text="Stock Level"/>
+            <Input id="inputStockLevel" value="{productModel>/stockLevel}" placeholder="Enter stock quantity" type="Number"/>
+
+            <Label id="_IDGenLabel12" text="Reorder Threshold"/>
+            <Input id="inputReorderThreshold1" value="{productModel>/reorderThreshold}" placeholder="Enter reorder level" type="Number"/>
+
+            <Label id="_IDGenLabel13" text="Supplier"/>
+<ComboBox id="inputSupplier1" items="{/Suppliers}">
+    <core:ListItem id="_IDGenListItem2" key="{ID}" text="{name}"/>
+</ComboBox>
+
+
+        </f:SimpleForm>
+    </VBox>
+</content>
+
+
+        <footer>
+            <Toolbar id="_IDGenToolbar1">
+                <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                <Button id="_IDGenButton15" text="Save" press="onSaveEditProduct"/>
+                <Button id="_IDGenButton16" text="Cancel" press="onDialogClose"/>
+            </Toolbar>
+        </footer>
+    </Page>
+
+
+</mvc:View>
+
+
+
+

@@ -1,0 +1,245 @@
+/* Enter your custom styles here */
+.summarySection {
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+.summaryCard {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+}
+
+.summaryTitle {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.summaryValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007aff;
+}
+
+.iconBlue {
+    color: #007aff;
+}
+
+.iconGreen {
+    color: #28a745;
+}
+
+.iconPurple {
+    color: #6f42c1;
+}
+
+.iconRed {
+    color: #dc3545;
+}
+
+.alertsSection {
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alertsList {
+    border-radius: 8px;
+    background: white;
+}
+
+.alertItem {
+    font-weight: bold;
+    padding: 0.75rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.lowStock {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border-left: 5px solid #dc3545;
+}
+
+.pendingOrder {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    border-left: 5px solid #ffc107;
+}
+
+.highSales {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border-left: 5px solid #28a745;
+}
+
+
+.sectionTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.fullHeight {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+html, body, #container, #app, .fullHeight {
+    height: 100vh !important;  /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+#AddProductPage {
+    flex: 1;  /* Allow it to grow */
+    display: flex;
+    flex-direction: column;
+}
+
+VBox {
+    flex: 1; /* Expand to full height */
+}
+
+
+.sapUiMediumMargin {
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bellIcon {
+    font-size: 1.5rem;
+    color: #d9534f; /* Red color for alert */
+    margin-left: 10px;
+    animation: shake 1s infinite alternate;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+
+/* General animation for icons */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    75% { transform: rotate(-3deg); }
+}
+ .iconGreen, .iconPurple {
+    animation: pulse 2s infinite;
+}
+
+.iconRed {
+    animation: shake 1s infinite alternate;
+}
+
+.bellIcon {
+    color: #d9534f; /* Red for alerts */
+    animation: shake 1.5s infinite;
+}
+
+
+@keyframes glow {
+    0% { filter: drop-shadow(0 0 5px rgba(0, 102, 255, 0.5)); }
+    50% { filter: drop-shadow(0 0 15px rgba(0, 102, 255, 1)); }
+    100% { filter: drop-shadow(0 0 5px rgba(0, 102, 255, 0.5)); }
+}
+
+@keyframes lightSweep {
+    0% { background-position: -100%; }
+    100% { background-position: 100%; }
+}
+
+.iconGlow {
+    animation: glow 2s infinite alternate;
+}
+
+
+.alertItem:hover {
+    background-color: rgba(0, 102, 255, 0.1); /* Light blue hover */
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+
+
+/* Add light sweep effect */
+.lightSweep {
+    position: relative;
+    overflow: hidden;
+}
+
+.lightSweep::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%);
+    animation: lightSweep 2s linear infinite;
+}
+
+
+@keyframes barAnimation {
+    0% { opacity: 0; transform: scaleY(0.5); }
+    100% { opacity: 1; transform: scaleY(1); }
+}
+
+/* Apply Gradient Effect */
+.customBarChart .v-m-bars rect {
+    fill: linear-gradient(180deg, #f97316 0%, #3b82f6 30%, #10b981 60%, #ef4444 100%);
+    animation: barAnimation 1s ease-in-out;
+}
+
+
+.redGlow:hover {
+    animation: glowRed 1.5s infinite alternate;
+}
+
+.yellowGlow:hover {
+    animation: glowYellow 1.5s infinite alternate;
+}
+
+.greenGlow:hover {
+    animation: glowGreen 1.5s infinite alternate;
+}
+
+/* Define animations */
+@keyframes glowRed {
+    0% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5)); }
+    50% { filter: drop-shadow(0 0 15px rgba(255, 0, 0, 1)); }
+    100% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5)); }
+}
+
+@keyframes glowYellow {
+    0% { filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.5)); }
+    50% { filter: drop-shadow(0 0 15px rgba(255, 255, 0, 1)); }
+    100% { filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.5)); }
+}
+
+@keyframes glowGreen {
+    0% { filter: drop-shadow(0 0 5px rgba(0, 255, 0, 0.5)); }
+    50% { filter: drop-shadow(0 0 15px rgba(0, 255, 0, 1)); }
+    100% { filter: drop-shadow(0 0 5px rgba(0, 255, 0, 0.5)); }
+}
+
